@@ -80,11 +80,12 @@ for idx in "${!CHECKS[@]}"; do
     check="${entry%%:*}"
     label="${entry#*:}"
     check_script="${SCRIPT_DIR}/checks/${check}.sh"
+    log_label="$(printf '%s' "${label}" | tr '[:upper:]' '[:lower:]')"
 
     output_file=$(mktemp)
     check_exit=0
 
-    log_info "Starting check: ${label}"
+    log_info "${log_label}..."
 
     if [[ ! -x "${check_script}" ]]; then
         echo "[WARN] [${check}] Check script not found or not executable" > "${output_file}"
