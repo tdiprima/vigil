@@ -91,7 +91,7 @@ sudo ./install-deps.sh
 sudo cp -r . /opt/vigil
 
 # Edit the config
-sudo vi /opt/vigil/vigil.conf
+sudo vim /opt/vigil/vigil.conf
 ```
 
 Key settings in `vigil.conf`:
@@ -171,4 +171,6 @@ Exit codes follow a consistent convention: `0` = clean, `1` = warning, `2` = cri
 
 ## License
 
-MIT
+[MIT](LICENSE)
+
+<BR>
