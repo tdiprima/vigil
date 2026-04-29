@@ -74,7 +74,7 @@ RHEL/CentOS/Rocky/Alma or Ubuntu/Debian. Vigil autodetects the OS family and use
 ### Install
 
 ```bash
-git clone <repo-url> vigil
+git clone https://github.com/tdiprima/vigil.git
 cd vigil
 
 # Check what's needed and install missing packages
