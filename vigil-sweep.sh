@@ -84,6 +84,8 @@ for idx in "${!CHECKS[@]}"; do
     output_file=$(mktemp)
     check_exit=0
 
+    log_info "Starting check: ${label}"
+
     if [[ ! -x "${check_script}" ]]; then
         echo "[WARN] [${check}] Check script not found or not executable" > "${output_file}"
         check_exit=1
@@ -116,6 +118,13 @@ for idx in "${!CHECKS[@]}"; do
             fi
             ;;
     esac
+
+    case "${check_exit}" in
+        0) check_status="clean" ;;
+        1) check_status="warning" ;;
+        *) check_status="critical" ;;
+    esac
+    log_info "Finished check: ${label} (${check_status}, exit ${check_exit})"
 done
 
 # ─── Build Report ───────────────────────────────────────
