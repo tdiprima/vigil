@@ -1,0 +1,11 @@
+[Unit]
+Description=Vigil Daily Security Sweep
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/opt/vigil/vigil-sweep.sh --config /opt/vigil/vigil.conf --quiet
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=vigil-sweep
