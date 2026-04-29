@@ -29,7 +29,7 @@ check_disk_space() {
         df -h | tail -n +2 > "${df_output}"
     fi
 
-    while read -r filesystem size used avail pct mountpoint; do
+    while read -r filesystem _size _used avail pct mountpoint; do
         case "${filesystem}" in
             tmpfs|devtmpfs|none|overlay) continue ;;
         esac
@@ -58,7 +58,7 @@ check_inode_usage() {
         df -i | tail -n +2 > "${df_output}"
     fi
 
-    while read -r filesystem itotal iused iavail ipct mountpoint; do
+    while read -r filesystem _itotal _iused iavail ipct mountpoint; do
         case "${filesystem}" in
             tmpfs|devtmpfs|none|overlay) continue ;;
         esac

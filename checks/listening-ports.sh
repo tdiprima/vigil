@@ -32,7 +32,7 @@ missing_ports=$(diff "${known_ports_file}" "${current_ports}" | grep '^<' | sed 
 
 if [[ -n "${unknown_ports}" ]]; then
     while IFS= read -r port_entry; do
-        proc_info=$(ss -tlnp | grep "${port_entry}" | awk '{print $6}' | head -1)
+        proc_info=$(ss -tlnp | awk -v port="${port_entry}" '$4 == port { print $6; exit }')
         report_finding "${VIGIL_SEVERITY_CRIT}" "${CHECK_NAME}" "Unknown listener: ${port_entry} ${proc_info}"
         max_severity="${VIGIL_SEVERITY_CRIT}"
     done <<< "${unknown_ports}"

@@ -62,7 +62,8 @@ send_digest() {
     local report_file="${1}"
     local hostname_short
     hostname_short="$(hostname -s 2>/dev/null || hostname)"
-    local subject="[Vigil] Daily Security Digest — ${hostname_short} — $(datestamp)"
+    local subject
+    subject="[Vigil] Daily Security Digest — ${hostname_short} — $(datestamp)"
     send_email "${subject}" "${report_file}"
 }
 

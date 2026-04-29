@@ -3,6 +3,7 @@
 
 set -euo pipefail
 
+# shellcheck disable=SC2034 # Sourced by check scripts; used as shared constants.
 VIGIL_SEVERITY_OK=0
 VIGIL_SEVERITY_WARN=1
 VIGIL_SEVERITY_CRIT=2

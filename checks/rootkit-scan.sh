@@ -21,7 +21,7 @@ rkhunter --update --nocolors 2>/dev/null || true
 scan_output=$(mktemp)
 rkhunter --check --skip-keypress --nocolors --report-warnings-only > "${scan_output}" 2>&1 || true
 
-warning_count=$(grep -c "Warning:" "${scan_output}" 2>/dev/null || echo "0")
+warning_count=$(grep -c "Warning:" "${scan_output}" 2>/dev/null || true)
 
 if (( warning_count > 0 )); then
     report_finding "${VIGIL_SEVERITY_CRIT}" "${CHECK_NAME}" "${warning_count} warning(s) from rkhunter:"

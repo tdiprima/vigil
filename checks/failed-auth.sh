@@ -35,10 +35,14 @@ fi
 
 yesterday=$(date -d "yesterday" '+%b %e' 2>/dev/null || true)
 today=$(date '+%b %e')
+date_filter="${today}"
+if [[ -n "${yesterday}" ]]; then
+    date_filter="${today}|${yesterday}"
+fi
 
 failed_ips=$(mktemp)
 grep -E "(Failed password|authentication failure|Invalid user)" "${auth_log}" 2>/dev/null \
-    | grep -E "(${today}|${yesterday})" \
+    | grep -E "(${date_filter})" \
     | grep -oE '([0-9]{1,3}\.){3}[0-9]{1,3}' \
     | sort \
     | uniq -c \
