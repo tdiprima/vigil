@@ -124,7 +124,7 @@ sudo /opt/vigil/vigil-sweep.sh --no-email
 ### Schedule It
 
 ```bash
-# Install the systemd timer (runs daily at 05:00 with up to 5 min jitter)
+# Install the systemd timer (runs daily at 05:00 with up to 30 min jitter)
 sudo cp /opt/vigil/systemd/vigil-sweep.service /etc/systemd/system/
 sudo cp /opt/vigil/systemd/vigil-sweep.timer /etc/systemd/system/
 sudo systemctl daemon-reload
