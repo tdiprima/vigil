@@ -169,6 +169,13 @@ fi
 log_file="${LOG_DIR}/vigil-$(datestamp).log"
 echo "[$(timestamp)] Sweep complete. ${summary_crit} critical, ${summary_warn} warnings, ${summary_ok} clean" >> "${log_file}"
 
+# ─── Purge Old Logs and Reports ────────────────────────
+if (( RETENTION_DAYS > 0 )); then
+    find "${LOG_DIR}" -name 'vigil-*.log' -type f -mtime "+${RETENTION_DAYS}" -delete
+    find "${REPORT_DIR}" -name 'report-*.txt' -type f -mtime "+${RETENTION_DAYS}" -delete
+    log_info "Purged logs and reports older than ${RETENTION_DAYS} days"
+fi
+
 if [[ "${has_critical}" == "true" ]]; then
     exit 2
 elif (( summary_warn > 0 )); then
