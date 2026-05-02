@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 # Verify package file integrity via rpm -Va or debsums
 
-set -euo pipefail
-
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 VIGIL_DIR="${VIGIL_DIR:-$(dirname "${SCRIPT_DIR}")}"
 

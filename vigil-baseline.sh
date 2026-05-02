@@ -2,8 +2,6 @@
 # Create baseline snapshots for Vigil drift detection
 # Run once after initial setup, then again after intentional system changes
 
-set -euo pipefail
-
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 source "${SCRIPT_DIR}/lib/common.sh"
 

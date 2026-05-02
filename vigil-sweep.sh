@@ -2,8 +2,6 @@
 # Vigil — Daily Security Sweep Orchestrator
 # Runs all checks, sends critical alerts immediately, then daily digest
 
-set -euo pipefail
-
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 source "${SCRIPT_DIR}/lib/common.sh"
 source "${SCRIPT_DIR}/lib/alert.sh"

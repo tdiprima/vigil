@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 # Parse auth logs for brute-force spikes beyond fail2ban thresholds
 
-set -euo pipefail
-
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 VIGIL_DIR="${VIGIL_DIR:-$(dirname "${SCRIPT_DIR}")}"
 

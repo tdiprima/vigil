@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 # Compare listening ports against known-good baseline
 
-set -euo pipefail
-
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 VIGIL_DIR="${VIGIL_DIR:-$(dirname "${SCRIPT_DIR}")}"
 
