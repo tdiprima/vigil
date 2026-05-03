@@ -71,9 +71,9 @@ find / -perm -4000 -type f 2>/dev/null | sort > "${BASELINE_DIR}/suid.baseline"
 
 # ─── Listening Ports ─────────────────────────────────────
 log_info "Snapshotting listening ports as known-good..."
-ss -tlnp | tail -n +2 | awk '{print $4}' | sort -u > "${DATA_DIR}/known-ports.txt"
+ss -tlnp | tail -n +2 | awk '{print $4}' | sort -u > "${BASELINE_DIR}/known-ports.txt"
 
 log_info "Baselines created:"
 ls -la "${BASELINE_DIR}/"
-log_info "Known ports: ${DATA_DIR}/known-ports.txt"
+log_info "Known ports: ${BASELINE_DIR}/known-ports.txt"
 log_info "Review known-ports.txt and remove any ports that should trigger alerts."

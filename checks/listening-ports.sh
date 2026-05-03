@@ -15,7 +15,7 @@ if ! command_exists ss; then
     exit 1
 fi
 
-known_ports_file="${KNOWN_PORTS_FILE:-${DATA_DIR}/known-ports.txt}"
+known_ports_file="${KNOWN_PORTS_FILE:-${BASELINE_DIR}/known-ports.txt}"
 
 if [[ ! -f "${known_ports_file}" ]]; then
     report_finding "${VIGIL_SEVERITY_WARN}" "${CHECK_NAME}" "No known-ports file. Run vigil-baseline.sh first."
