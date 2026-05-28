@@ -1,4 +1,4 @@
-# Vigil 🕯️
+# Vigil 🕯
 
 A daily automated security sweep for Linux servers that catches drift, rootkits, tampered binaries, expiring certs, unauthorized ports, brute-force spikes, and full disks — then emails you a single digest before your morning coffee.
 
